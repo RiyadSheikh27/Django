@@ -10,6 +10,11 @@ def courseDetails(request,courseId):
 def homePage(request):
     data={
         'title':'Test Home Page',
-        'bdata':'Welcome to Homepage'
+        'bdata':'Welcome to Homepage',
+        'clist':['Java ','C++ ','Python '],
+        'std_det_dic':[
+            {'name':'Riyad','phn':'016120000'},
+            {'name':'Abir','phn':'013070000'}
+        ]
     }
     return render(request,"index.html",data)

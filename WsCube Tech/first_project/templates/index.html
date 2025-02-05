@@ -6,6 +6,26 @@
     <title>{{title}}</title>
 </head>
 <body>
-    {{bdata}}
+    <div>
+        {{bdata}}
+    {% for n in clist%}
+    <br>
+    {{forloop.counter}}{{n}}
+    {% endfor %}
+    </div>
+
+    <br>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        {% for d in std_det_dic %}
+        <tr>
+            <td>{{d.name}}</td>
+            <td>{{d.phn}}</td>
+        </tr>
+        {% endfor %}
+    </table>   
 </body>
 </html>
