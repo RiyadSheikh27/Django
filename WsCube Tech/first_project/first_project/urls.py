@@ -23,4 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("about-us/", views.aboutUs),
     path("course/<str:courseId>", views.courseDetails),
+    path("", views.homePage),
 ]
