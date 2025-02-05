@@ -8,4 +8,8 @@ def courseDetails(request,courseId):
     return HttpResponse(courseId)
 
 def homePage(request):
-    return render(request,"index.html")
+    data={
+        'title':'Test Home Page',
+        'bdata':'Welcome to Homepage'
+    }
+    return render(request,"index.html",data)
