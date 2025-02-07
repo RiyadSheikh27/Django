@@ -12,6 +12,7 @@ def homePage(request):
         'title':'Test Home Page',
         'bdata':'Welcome to Homepage',
         'clist':['Java ','C++ ','Python '],
+        'numbers':[10,20,30,40,50],
         'std_det_dic':[
             {'name':'Riyad','phn':'016120000'},
             {'name':'Abir','phn':'013070000'}

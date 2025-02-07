@@ -26,6 +26,18 @@
             <td>{{d.phn}}</td>
         </tr>
         {% endfor %}
-    </table>   
+    </table> 
+    
+    {% if numbers|length > 0 %}
+    {% for n in numbers %}
+    {% if n > 20 %}
+        <div>{{ n }}</div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+        No Data Found
+    {% endif %}
+
+
 </body>
 </html>
