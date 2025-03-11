@@ -8,14 +8,15 @@
     <h1>User Form</h1>
     <div class="row">
         <div class="col-12">
-            <form>
+            <form method="post">
+                {% csrf_token %}
                 <div>
                     <label for="">Value1</label>
-                    <input type="text" name="num1">
+                    <input type="text" value="{{n1}}" name="num1">
                 </div>
                 <div>
                     <label for="">Value2</label>
-                    <input type="text" name="num2">
+                    <input type="text" value="{{n2}}" name="num2">
                 </div>
                 <div>
                     <button type="submit">Save</button>
