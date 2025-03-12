@@ -8,16 +8,18 @@
     <h1>User Form</h1>
     <div class="row">
         <div class="col-12">
-            <form method="post" action="{% url 'submitform' %}">
+            <form method="post">
+            {% comment %} <form method="post" action="{% url 'submitform' %}"> {% endcomment %}
                 {% csrf_token %}
-                <div>
+                {{form}}
+                {% comment %} <div>
                     <label for="">Value1</label>
                     <input type="text" value="{{n1}}" name="num1">
                 </div>
                 <div>
                     <label for="">Value2</label>
                     <input type="text" value="{{n2}}" name="num2">
-                </div>
+                </div> {% endcomment %}
                 <div>
                     <button type="submit">Save</button>
                 </div>
