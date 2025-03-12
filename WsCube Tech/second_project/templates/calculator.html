@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                {% csrf_token %}
+                <label for="num1">Value1</label>
+                <input type="text" name="num1">
+                <br>
+                <label>Select Operation</label>
+                <select name="opr">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">/</option>
+                </select>
+                <br>
+                <label for="num2">Value2</label>
+                <input type="text" name="num2">
+                <br>
+                <button type="submit">Calculate</button>
+                <br>
+                <label>Output</label>
+                <input type="text" value={{c}}>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

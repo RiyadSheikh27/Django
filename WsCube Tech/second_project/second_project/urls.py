@@ -20,6 +20,7 @@ from second_project import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userform', views.userForm),
+    path('userform/', views.userForm),
+    path('calculator/', views.calculator),
     # path('submitform', views.submitform,name="submitform"),
 ]
