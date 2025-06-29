@@ -102,7 +102,8 @@ def studentDetailView(request, pk):
 #         employee.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+"""
+#Mixins
 class Employees(
     mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView
 ):
@@ -128,3 +129,16 @@ class EmployeeView(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.De
 
     def delete(self, request, pk):
         return self.destroy(request, pk)
+"""
+
+
+# Generics
+class Employees(generics.ListCreateAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+
+
+class EmployeeView(generics.RetrieveUpdateDestroyAPIView):
+    queryset =  Employee.objects.all()
+    serializer_class = EmployeeSerializer
+    lookup_field = 'pk'
