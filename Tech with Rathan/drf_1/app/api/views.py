@@ -12,6 +12,9 @@ from rest_framework import mixins, generics, viewsets
 from blogs.models import Blog, Comment
 from blogs.serializers import BlogSerializer, CommentSerializer
 from .paginations import CustomPagination
+from employees.filters import EmployeeFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
+
 # Create your views here.
 
 
@@ -176,27 +179,37 @@ class EmployeeViewSet(viewsets.ViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 """
 
+
 # Model ViewSet
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
     pagination_class = CustomPagination
-    filterset_fields = ['designation']
+    filterset_class = EmployeeFilter
+
 
 class BlogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["blog_title"]
+    ordering_fields = ['id']
+
 
 class CommentView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
+
 class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    lookup_field = 'pk'
+    lookup_field = "pk"
+
 
 class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    lookup_field = 'pk'
+    lookup_field = "pk"
+
+

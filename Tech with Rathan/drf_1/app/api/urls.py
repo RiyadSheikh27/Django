@@ -10,7 +10,7 @@ urlpatterns = [
     path('studentData/', views.studentView, name='students_detail'),
     path('studentInput/', views.studentInput, name='students_Input'),
     path('studentData/<int:pk>/', views.studentDetailView, name='students_Details'),
-    # Class Based View
+
     # path('employee/', views.Employees.as_view()),
     # path('employee/<int:pk>/', views.EmployeeView.as_view()),
     path('',include(router.urls)),
